@@ -1,0 +1,12 @@
+#customButton {
+    font-size: 1.5rem;
+    color: white; /* Text color for dark mode */
+    padding: 0.5rem 1rem; /* Padding for the button */
+    background-color: #333; /* Dark background color for dark mode */
+    border: 1px solid #666; /* Border color for the button */
+    border-radius: 4px; /* Rounded corners for the button */
+}
+
+#customButton:hover {
+    background-color: #555; /* Darker background color on hover */
+}

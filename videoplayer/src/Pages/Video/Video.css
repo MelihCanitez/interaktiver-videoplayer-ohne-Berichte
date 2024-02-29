@@ -1,0 +1,9 @@
+#Player-Div {
+    width: 67%;
+    margin-left: 1vw;
+}
+
+#List-and-Player {
+    display: flex;
+    margin-top: 0.5vw;
+}

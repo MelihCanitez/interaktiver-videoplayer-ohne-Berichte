@@ -1,0 +1,45 @@
+#Background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#Wrapper {
+    position: fixed;
+    top: 40vh;
+    left: 35vw;
+    width: 30vw;
+    height: 20vh;
+    z-index: 2;
+    border-radius: 0.5rem;
+    border: 2px solid #e2001a;
+}
+
+#Popup-Header {
+    background-color: #e2001a;
+    color: white;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Content-Header {
+    font-size: 1.5rem;
+}
+
+#Popup-Buttons {
+    margin-top: 3.5vh;
+}
+
+#Popup-Buttons button:first-of-type {
+    margin-right: 5vw;
+}
+
+#Single-Button {
+    margin-top: 3.5vh;
+}

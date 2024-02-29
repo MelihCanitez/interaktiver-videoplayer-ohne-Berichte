@@ -1,0 +1,9 @@
+/* #Upload {
+    display:flex;
+    margin-left: 2vw;
+    margin-top: 0.5vh;
+} */
+
+#fileInput {
+    display: none;
+}

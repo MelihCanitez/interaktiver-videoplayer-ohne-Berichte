@@ -1,0 +1,95 @@
+#Header-and-List {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vw;
+    /* Liste passt sich dem Player an */
+}
+
+#Header {
+    background-color: #e2001a;
+    width: 15vw;
+    height: 4vh;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#List {
+    background-color: grey;
+    width: 15vw;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    height: 72vh;
+}
+
+#List p {
+    color: white;
+    max-width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 5vh;
+    min-height: 5vh;
+    outline: 1px solid darkgray;
+    display: flex;
+    align-items: center;
+    /* Vertikal zentrieren */
+    justify-content: center;
+    /* Horizontal zentrieren */
+}
+
+#List p:hover {
+    color: blue;
+    text-decoration: underline;
+}
+
+/*Interaction*/
+
+#Interaction-List-and-Interaction {
+    height: 20vh;
+    display: flex;
+}
+
+#Interaction-Header-and-List {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vw;
+}
+
+#Interaction-Header {
+    background-color: #e2001a;
+    width: 15vw;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#Interaction-List {
+    background-color: grey;
+    width: 15vw;
+    height: 20vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#Interaction-List p {
+    color: white;
+    max-width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 5vh;
+    min-height: 5vh;
+    outline: 1px solid darkgray;
+    display: flex;
+    align-items: center;
+    /* Vertikal zentrieren */
+    justify-content: center;
+    /* Horizontal zentrieren */
+    overflow:hidden;
+}
+
+#Interaction-List p:hover {
+    color: blue;
+    text-decoration: underline;
+}

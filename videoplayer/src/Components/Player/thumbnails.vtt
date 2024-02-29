@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:30.000
+http://localhost:8000/media/storyboard.jpg#xywh=0,0,180,101
+
+00:00:02.000 --> 00:01:00.000
+http://localhost:8000/media/storyboard.jpg#xywh=180,0,180,101
+
+00:00:04.000 --> 00:01:30.000
+http://localhost:8000/media/storyboard.jpg#xywh=360,0,180,101
+
+00:00:06.000 --> 00:02:00.000
+https://customer-m033z5x00ks6nunl.cloudflarestream.com/b236bde30eb07b9d01318940e5fc3eda/thumbnails/thumbnail.jpg?time=1s&height=270
+
+00:00:08.000 --> 00:02:30.000
+https://customer-m033z5x00ks6nunl.cloudflarestream.com/b236bde30eb07b9d01318940e5fc3eda/thumbnails/thumbnail.jpg?time=1s&height=270

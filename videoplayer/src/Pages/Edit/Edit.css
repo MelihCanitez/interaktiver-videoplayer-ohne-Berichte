@@ -1,0 +1,11 @@
+#Player-Div {
+    margin-left: 1vw;
+    margin-top: 0;
+}
+
+#Button {
+    display:flex;
+    justify-content: space-between;
+    margin-left: 1vw;
+    width: 15vw;
+}

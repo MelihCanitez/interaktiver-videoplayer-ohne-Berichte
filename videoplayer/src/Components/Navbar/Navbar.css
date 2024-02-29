@@ -1,0 +1,44 @@
+#Logo {
+    display: block;
+    width:15vw;
+}
+
+.Navbar {
+    background-color: #e2001a;
+}
+
+.Links {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem 0 0.5rem 0;
+    list-style: none;
+    margin-top:0;
+}
+
+.Link {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+.CustomLink{
+    text-decoration: none;
+    color:white;
+}
+
+.Links .Link:first-child {
+    margin-left: 5rem;
+}
+
+.CustomLink:hover {
+    text-decoration: underline;
+}
+
+.DarkMode-Div {
+    margin-right: 5rem;
+    display: flex; /* Benutze Flexbox */
+    align-items: center; /* Vertikal zentrieren */
+    justify-content: center; /* Horizontal zentrieren */
+}
