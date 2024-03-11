@@ -11,6 +11,7 @@ const Video = () => {
     const [vid, setVid] = useState(""); // "", weil der Player kein null, aber einen leeren String akzeptiert
     const [title, setTitle] = useState("");
 
+    // Ein bestimmtes Video in den Player laden -> Funktion wird als Parameter der "List"-Komponente übergeben und der Index vom Video in der Datenbank wird dieser Funktion als Parameter übergeben.
     const loadIndexVideo = async (index) => {
         let response = await fetch('http://localhost:8000/video/')
         let data = await response.json()

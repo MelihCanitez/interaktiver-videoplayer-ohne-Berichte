@@ -3,16 +3,18 @@ import './Videofilehandler.css';
 
 import Popup from '../Popup/Popup.js';
 
-const Videofilehandler = ({ customFunction, type, vid, title }) => {
+const Videofilehandler = ({ customFunction, type, vid, title }) => { // customFuction = loadIndexVideo() aus der Video.js
     const fileInputRef = useRef(null);
 
+    // Da die Popups nur beim Hochladen, Löschen und Umbenennen angezeigt werden findet das Umschalten vom Popup in dieser Komponente statt
     const [popupOverlay, setPopupOverlay] = useState(false);
 
     const togglePopupOverlay = () => {
-        setPopupOverlay(!popupOverlay);
+        setPopupOverlay(!popupOverlay); // standard = kein Popup
     }
 
-    const checkVid = () => {
+
+    const checkVid = () => { // Überprüfung ob überhaupt ein Video ausgewählt ist
         if (vid.length === 36) {
             return true;
         }
@@ -46,12 +48,13 @@ const Videofilehandler = ({ customFunction, type, vid, title }) => {
             customFunction(event.target.files[0]);
         };
 
-        const handleUploadClick = () => {
+        const handleUploadClick = () => { // Ein Input wird mithilfe von einem Button angeklickt
             fileInputRef.current.click();
         };
 
         return (
             <div id="Upload">
+                {/* Der nachfolgende Input wird mithilfe der CSS ausgeblendet */}
                 <input
                     type="file"
                     accept="video/*"
@@ -59,6 +62,7 @@ const Videofilehandler = ({ customFunction, type, vid, title }) => {
                     onChange={handleFileChange}
                     ref={fileInputRef}
                 />
+                {/* Der nachfolgende button ersetzt den Input (Grund: besseres Design) */}
                 <button id="uploadButton" className="uploadButton" onClick={handleUploadClick}>
                     Video hochladen
                 </button>
@@ -68,7 +72,8 @@ const Videofilehandler = ({ customFunction, type, vid, title }) => {
     else if (type === "Delete") {
         return (
             <>
-                {popupOverlay && (<Popup title="Test" onClick={togglePopupOverlay} customFunction={deleteVideo} type={"Delete"} isVideo={checkVid()} />)}
+                {/* Die Popup Komponente wird erst angezeigt, sobald popupOverlay durch die onClick()-Funktion auf true gesetzt wird */}
+                {popupOverlay && (<Popup title="Test" onClick={togglePopupOverlay} customFunction={deleteVideo} type={"Delete"} isVideo={checkVid()} />)} 
                 <div id="Delete">
                     <button className="deleteButton" onClick={togglePopupOverlay}>
                         Video löschen
@@ -80,6 +85,7 @@ const Videofilehandler = ({ customFunction, type, vid, title }) => {
     else if (type === "Rename") {
         return (
             <>
+                {/* Die Popup Komponente wird erst angezeigt, sobald popupOverlay durch die onClick()-Funktion auf true gesetzt wird */}
                 {popupOverlay && (<Popup title="Test" onClick={togglePopupOverlay} customFunction={renameVideo} type={"Rename"} isVideo={checkVid()} videoTitle={title} />)}
                 <div id="Delete">
                     <button className="renameButton" onClick={togglePopupOverlay}>

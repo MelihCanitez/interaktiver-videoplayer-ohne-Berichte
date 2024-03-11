@@ -5,6 +5,7 @@ const List = ({ loadIndexVideo, type, vid, setInteractionInfo }) => {
     const [videos, setVideos] = useState([]);
     const [interactions, setInteractions] = useState([]);
 
+    // [Videoübersicht / Interaktion] Beide Listenarten sollen aktualisiert werden ohne F5 (Neuladen der Seite)
     useEffect(() => {
         const getVideos = async () => {
             let response = await fetch('http://localhost:8000/video/');
@@ -22,11 +23,13 @@ const List = ({ loadIndexVideo, type, vid, setInteractionInfo }) => {
         getInteractions();
     }, [interactions]); //Grund für get Spam in Django
 
+    // [Videoübersicht] Aufruf der loadIndexVideo aus Video.js -> returnIndex wird durch onClick() auf ein Listen <p> Element aufgerufen
     const returnIndex = (index) => {
         loadIndexVideo(index);
     }
 
-    const deleteInteraction = async (iid) => {
+    // [Interaktion] Löschen einer Interaktion nach einem onDoubleClick() - Hier gibt es keine zusätzliche Popout Seite
+    const deleteInteraction = async (iid) => { 
         await fetch(`http://localhost:8000/interaction/${iid}/`, {
             method: "DELETE",
         })

@@ -14,6 +14,7 @@ const Edit = () => {
     const [title, setTitle] = useState("");
     const formData = new FormData();
 
+    // Umlaute sorgen für Probleme in Django. -> Diese Funktion wird in handleVideoSrc() aufgerufen und handleVideoSrc() wird in der Videofilehandler.js aufgerufen. Beim Upload wird der Dateiname auf Umlaute geprüft.
     function checkUmlaut(title) {
         if (title.includes('Ä')) {
             title = title.replace('Ä', 'AE');
@@ -44,6 +45,7 @@ const Edit = () => {
         }
     }
 
+    // Dieser Funktion wird eine Datei übergeben und der Titel und der Dateiname wird auf Umlaute mit checkUmlaut geprüft. Anschließend wird ein Video Element in die Datenbank gefetcht.
     const handleVideoSrc = (videoSrc) => {
         formData.append('vid', uuidv4())
         formData.append('title', videoSrc.name.slice(0, -4))
@@ -69,6 +71,7 @@ const Edit = () => {
         fetchNew()
     };
 
+    // Nachdem ein Video mit handleVideoSrc() in die Datenbank gefetcht wurde, wird das Video in das HLS-Format umgewandelt. Dies geschieht im Backend -> POST-fetch auf localhost:8000/executeconvert -> execute_convert() in der views.py
     const createHLS = async () => {
         let response = await fetch('http://localhost:8000/video/')
         let data = await response.json()
@@ -87,6 +90,7 @@ const Edit = () => {
         window.location.reload();
     }
 
+    // Ein bestimmtes Video in den Player laden -> Funktion wird als Parameter der "List"-Komponente übergeben und der Index vom Video in der Datenbank wird dieser Funktion als Parameter übergeben.
     const loadIndexVideo = async (index) => {
         let response = await fetch('http://localhost:8000/video/')
         let data = await response.json()

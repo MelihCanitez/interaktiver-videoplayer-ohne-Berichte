@@ -24,6 +24,7 @@ const Popup = ({ type, onClick, customFunction, isVideo, videoTitle }) => {
             );
         }
         else if (type === "Rename") {
+            // Umlaute sorgen für Probleme in Django. -> Diese Funktion wird bei der Umbenennung aufgerufen. Vor der Umbenennung wird der gewünschte Name überprüft und entsprechend angepasst.
             function checkUmlaut(title){
                 if(title.includes('Ä')){
                     title = title.replace('Ä', 'AE');
@@ -58,9 +59,9 @@ const Popup = ({ type, onClick, customFunction, isVideo, videoTitle }) => {
                 let response = await fetch('http://localhost:8000/video/');
                 let data = await response.json();
                 
-                const inputValue = checkUmlaut(document.getElementById('RenameValue').value);
+                const inputValue = checkUmlaut(document.getElementById('RenameValue').value); // Überprüfung der Umlaute
                 
-                // Check title duplicate
+                // Keine doppelten Namen
                 const foundTitle = data.find(item => item.title === inputValue);
                 console.log(foundTitle)
                 if (!foundTitle) {

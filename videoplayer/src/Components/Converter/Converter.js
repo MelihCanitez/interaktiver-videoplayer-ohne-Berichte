@@ -1,6 +1,8 @@
 const { exec } = require('child_process');
 const path = require('path'); // path Modul
 
+// >>> Diese Komponente wird garnicht benutzt! Diese Komponente wurde durch die execute_convert() Funktion aus der views.py ersetzt <<<
+// Das React-Frontend hat keinen Zugriff auf den "media" Ordner, wodurch der ffmpegCommand-Befehl nicht ausgeführt werden kann
 const videoToHLS = () => {
   const videoName = "IMG_9376.mp4"
   const inputVideo = `../../../videoplayer-backend/media/${videoName}`;

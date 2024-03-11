@@ -9,6 +9,8 @@ import testTrack from "./test.vtt";
 
 const Player = ({ src, title, page, vid }) => { /* *** src&title für den Player; page als "type" und vid für die Interaktionen(Liste) *** */
     const playerRef = useRef(); // Erstellen Sie eine Referenz
+
+    // Die folgenden useStates befinden sich alle in der nachfolgenden Player-Komponente für page="edit"
     const [durationValue, setDurationValue] = useState("");
     const [questionValue, setQuestionValue] = useState("");
     const [answer1Value, setAnswer1Value] = useState("");
@@ -135,6 +137,9 @@ const Player = ({ src, title, page, vid }) => { /* *** src&title für den Player
         }
     }
 
+    // >>> Wird nicht benutzt <<<
+    // Zu Beginn sollte erst überprüft werden, ob der Videoplayer im Vollbild genutzt wird, damit die Komponenten für die Interaktion für den Vollbild-Modus angepasst werden
+    // Da die Interaktion Komponenten ein Teil vom Player sind, werden diese sowohl im Vollbild als auch in der Standardansicht angezeigt
     // const isFullscreen = () => {
     //     return (
     //         document.fullscreenElement || // moderne Browser
@@ -200,8 +205,9 @@ const Player = ({ src, title, page, vid }) => { /* *** src&title für den Player
         setInteractions(data.filter(interaction => interaction.videoid === vid));
     };
 
+    // Kriterien wieviele Checkboxen angeklickt sein dürfen
     const handleCheckboxChange = (event, type, value) => {
-        if (type === "Single") {
+        if (type === "Single") { // Es darf nur eine angeklickt sein
             if (value === "1") {
                 if (event.target.checked) {
                     setChecked1(true);
@@ -247,7 +253,7 @@ const Player = ({ src, title, page, vid }) => { /* *** src&title für den Player
                 }
             }
         }
-        else if (type === "Multiple") {
+        else if (type === "Multiple") { // Es dürfen mehrere angeklickt sein
             if (value === "1") {
                 if (event.target.checked) {
                     setChecked1(true);
@@ -313,7 +319,7 @@ const Player = ({ src, title, page, vid }) => { /* *** src&title für den Player
         setQuestionValue("");
     }
     const createInteraction = (type) => {
-        if (vid.length !== 36) {
+        if (vid.length !== 36) { // Die UUID der vid ist genau 36 Zeichen lang. Falls dies nicht erfüllt sein sollte, dann ist kein Video ausgewählt
 
         }
         else {
@@ -444,9 +450,11 @@ const Player = ({ src, title, page, vid }) => { /* *** src&title für den Player
         }
     }
 
+    // Die nachfolgenden Player für die verschiedenen "Pages" sind unterschiedlich in Hinblick auf die Komponenten und ihrer CSS. Die Edit Seite verfügt über zusätzliche Liste für die Interaktionen und bietet
+    // das Hinzufügen von Interaktionen an. Die Popout-Seite hat einen Player, welches den gesamten Bildschirm füllt.
     return (
         <>
-            {page === "Video" ? (
+            {page === "Video" ? ( // > Video-Seite <
                 <div id='Player'>
                     <MediaPlayer
                         title={title}
@@ -516,7 +524,7 @@ const Player = ({ src, title, page, vid }) => { /* *** src&title für den Player
                         </div>
                     </MediaPlayer>
                 </div>
-            ) : page === "Edit" ? (
+            ) : page === "Edit" ? ( // > Edit-Seite <
                 <div id='Player-and-Interaction'>
                     <div id='Player'>
                         <MediaPlayer
@@ -781,7 +789,7 @@ const Player = ({ src, title, page, vid }) => { /* *** src&title für den Player
                         </div>
                     </div>
                 </div>
-            ) : (
+            ) : ( // > Popout-Seite <
                 <div id='Popout-Player'>
                     <MediaPlayer
                         title={title}
