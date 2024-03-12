@@ -25,5 +25,4 @@ yarn-error.log*
 #current own test media
 *.mp4
 
-*.pyc
-
+\backend
