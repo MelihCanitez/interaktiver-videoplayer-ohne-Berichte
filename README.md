@@ -1,5 +1,11 @@
 # interaktiver-Videoplayer
 
+# Downloads
+
+NodeJS: https://nodejs.org/en
+
+FFmpeg: https://ffmpeg.org/download.html
+
 # Terminal 1
 cd .\videoplayer\videoplayer-backend
 
